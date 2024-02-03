@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Hello {{ name }}!{% endblock %}
+
+{% block body %}
+    <div class="page-content">
+		<!-- inner page banner -->
+        <div class="dlab-bnr-inr" style="background-image:url({{ asset('images/pattern/pattern.jpg') }}); background-size:auto;">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">{{ categories[0].nom }}</h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="{{ path('app_home') }}"><i class="fa fa-home"></i></a></li>
+							<li>{{ categories[0].nom }}</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+		<!-- inner page banner END -->
+        <div class="content-block">
+			<div class="section-full bg-white content-inner" style="background-image:url({{ asset('images/line2.png') }}); background-size:contain;background-repeat: no-repeat;background-position: center;">
+                <div class="container">
+					<div class="row sp40">
+                        {% for categorie in categories %}
+                            {% for category in categorie.categories %}
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="class-item">
+                                        <div class="class-media"> 
+                                            <img src="/images/classes/pic1.jpg" alt="{{ category.nom }}"/>
+                                            <p>
+                                                <span>{{ category.nom }}</span> 
+                                            </p>
+                                        </div>
+                                        <div class="class-info">
+                                            <h4><a href="{{ path('app_category_list', {'category': categorie.slug, 'slug': category.slug}) }}">{{ category.titre }}</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+					</div>
+				</div>
+            </div>
+		</div>
+    </div>
+    <!-- Content END-->
+{% endblock %}
+{% block stylesheets %}
+<style>
+h4 {
+    font-size: 16px;
+    line-height: 30px;
+}
+</style>
+{% endblock %}
