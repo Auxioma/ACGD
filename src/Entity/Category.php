@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
@@ -32,6 +33,9 @@ class Category
 
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $Description = null;
 
     public function __construct()
     {
@@ -129,6 +133,18 @@ class Category
     public function setTitre(string $titre): static
     {
         $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(?string $Description): static
+    {
+        $this->Description = $Description;
 
         return $this;
     }

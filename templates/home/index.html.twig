@@ -3,50 +3,29 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
+
     <div class="page-content bg-white">
         <!-- Slider Banner -->
         <!-- Main Slider -->
         <div class="owl-slider owl-carousel owl-theme owl-btn-center-lr dots-none">
-			<div class="item slide-item">
-				<div class="slide-item-img"><img src="images/main-slider/slide3.jpg" class="" alt=""/></div>
-				<div class="slide-content">
-					<div class="slide-content-box container">
-						<div class="slide-content-area">
-							<h2 class="slider-title">Children Academy <span>First ReseaArchers</span></h2>
-							<p>Children's Academy will provide a stimulating and safe environment for children ages three month</p>
-							<a href="contect-us.html" class="btn btn-md kids-btn radius-xl">Join us</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="item slide-item">
-				<div class="slide-item-img"><img src="images/main-slider/slide2.jpg" class="" alt=""/></div>
-				<div class="slide-content">
-					<div class="slide-content-box container">
+		
+			{% for job in jobs.resultats %}
+
+				<div class="item slide-item">
+					<div class="slide-item-img"><img src="images/main-slider/slide3.jpg" class="" alt=""/></div>
+					<div class="slide-content">
 						<div class="slide-content-box container">
 							<div class="slide-content-area">
-								<h2 class="slider-title">Children Academy <span>First ReseaArchers</span></h2>
-								<p>Children's Academy will provide a stimulating and safe environment for children ages three month</p>
-								<a href="contect-us.html" class="btn btn-md kids-btn radius-xl">Join us</a>
+								<h2 class="slider-title">Lieux de travail : <span>{{ job.lieuTravail.libelle }}</span></h2>
+								<p>{{ job.intitule }}</p>
+								<a href="{{ job.origineOffre.urlOrigine }}" class="btn btn-md kids-btn radius-xl">postuler</a>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="item slide-item">
-				<div class="slide-item-img"><img src="images/main-slider/slide1.jpg" class="" alt=""/></div>
-				<div class="slide-content">
-					<div class="slide-content-box container">
-						<div class="slide-content-box container">
-							<div class="slide-content-area">
-								<h2 class="slider-title">Children Academy <span>First ReseaArchers</span></h2>
-								<p>Children's Academy will provide a stimulating and safe environment for children ages three month</p>
-								<a href="contect-us.html" class="btn btn-md kids-btn radius-xl">Join us</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+
+			{% endfor %}
+
 		</div> 
 		<!-- Slider Banner -->
 		<div class="content-block">
@@ -79,39 +58,11 @@
 									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
 								</div>
 							</div>
-							<div class="icon-bx-wraper right m-b30 about-iconbx">
-								<div class="icon-bx-sm radius bg-pink"> <a href="javascript:void(0);" class="icon-cell"><i class="flaticon-bricks"></i></a> </div>
-								<div class="icon-content">
-									<h5 class="dlab-tilte">Active Learning</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
-								</div>
-							</div>
-							<div class="icon-bx-wraper right m-b30 about-iconbx">
-								<div class="icon-bx-sm radius bg-blue"> <a href="javascript:void(0);" class="icon-cell"><i class="flaticon-boy"></i></a> </div>
-								<div class="icon-content">
-									<h5 class="dlab-tilte">Expert Teachers</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
-								</div>
-							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-12 m-b30 d-md-none d-lg-block d-sm-none">
 							<img src="images/about/about-2.jpg" alt=""/>
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-12">
-							<div class="icon-bx-wraper left m-b30 about-iconbx">
-								<div class="icon-bx-sm bg-green radius"> <a href="javascript:void(0);" class="icon-cell"><i class="flaticon-bus"></i></a> </div>
-								<div class="icon-content">
-									<h5 class="dlab-tilte">Strategi Location</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
-								</div>
-							</div>
-							<div class="icon-bx-wraper left m-b10 about-iconbx">
-								<div class="icon-bx-sm bg-orange radius"> <a href="javascript:void(0);" class="icon-cell"><i class="flaticon-ice-cream"></i></a> </div>
-								<div class="icon-content">
-									<h5 class="dlab-tilte">Full Day Programs</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
-								</div>
-							</div>
 							<div class="icon-bx-wraper left m-b30 about-iconbx">
 								<div class="icon-bx-sm bg-green radius"> <a href="javascript:void(0);" class="icon-cell"><i class="flaticon-bus"></i></a> </div>
 								<div class="icon-content">

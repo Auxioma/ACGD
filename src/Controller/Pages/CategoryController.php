@@ -20,7 +20,7 @@ class CategoryController extends AbstractController
     #[Route('/cours/{category}/{slug}', name: 'app_category_list')]
     public function list(CategoryRepository $categories, string $category, string $slug): Response
     {
-        return $this->render('pages/list_category.html.twig', [
+        return $this->render('pages/list-sous-caterogy.html.twig', [
             'categories' => $categories->findBy(['slug' => $slug])
         ]);
     }

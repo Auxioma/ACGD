@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Hello {{ name }}!{% endblock %}
+
+{% block body %}
+    <!-- Content -->
+    <div class="page-content">
+		<!-- inner page banner -->
+        <div class="dlab-bnr-inr" style="background-image:url(/images/pattern/pattern.jpg); background-size:auto;">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">{{ categories[0].titre }}</h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="index.html"><i class="fa fa-home"></i></a></li>
+							<li>{{ categories[0].categories[0].titre }}</li>
+							<li>{{ categories[0].titre }}</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+		<!-- inner page banner END -->
+        <div class="content-block">
+			<div class="section-full bg-white content-inner" style="background-image:url(/images/line2.png); background-size:contain;background-repeat: no-repeat;background-position: center;">
+                <div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-md-12 col-sm-12 m-b15">
+							<div class="classes-details">
+                                <!--
+								<div class="class-media">
+									<img src="/images/blog/large/pic1.jpg" alt=""/>
+								</div>
+                                -->
+								<div class="class-info">
+									<div class="dlab-post-title ">
+										<h2 class="post-title m-t0"><a>Maquetter une application web et web mobile</a></h2>
+									</div>
+									<div class="dlab-post-meta m-b20">
+										<ul class="d-flex align-items-center">
+											<li class="post-date"> <i class="la la-calendar-o"></i><strong>10 Aug</strong> <span> 2016</span> </li>
+											<li class="post-author"><i class="la la-user"></i>By <a>Guillaume</a> </li>
+										</ul>
+									</div>
+									<div class="dlab-post-text">
+                                        {{ categories[0].description | raw }}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-12 col-sm-12">
+                            <!--
+							<div class="widget">
+                                <h5 class="widget-title">Search</h5>
+                                <div class="search-bx style-1">
+                                    <form role="search" method="post">
+                                        <div class="input-group">
+                                            <input name="text" class="form-control" placeholder="Enter your keywords..." type="text">
+                                            <span class="input-group-btn">
+												<button type="submit" class="fa fa-search text-primary"></button>
+                                            </span> 
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                            -->
+							<div class="details-tbl widget">
+								<ul class="class-details">
+                                    {% for category in categories[0].categories %}
+									<li>
+										<div class="name"><i class="la la-clock-o"></i><a>{{ category.nom }}</a></div>
+									</li>
+                                    {% endfor %}
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+		</div>
+    </div>
+    <!-- Content END-->
+{% endblock %}

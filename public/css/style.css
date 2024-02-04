@@ -4180,7 +4180,7 @@ blockquote:before {
 }
 .dlab-bnr-inr h1 {
 	font-weight: 700;
-	font-size: 70px;
+	font-size: 50px;
 	font-family: 'Abhaya Libre', serif;
 	margin-bottom: 5px;
 	position:relative;
@@ -7817,7 +7817,7 @@ button:focus{
     color: #777;
 }
 ul[class*="list-"]{
-	font-size:15px;
+	font-size:12px;
 }
 
 .list-circle li:before {

@@ -15,9 +15,10 @@ class HomeController extends AbstractController
     public function index(PoleEmploiServices $job): Response
     {
         $ResultJob = $job->get($query = '');
-
+        $jobs = json_decode($ResultJob);
+        
         return $this->render('home/index.html.twig', [
-            'jobs' => json_decode($ResultJob)
+            'jobs' => $jobs
         ]);
     }
 }
