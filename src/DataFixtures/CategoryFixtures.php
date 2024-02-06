@@ -393,15 +393,15 @@ class CategoryFixtures extends Fixture
                                 'slug' => 'Composer',
                             ],
                             [
-                                'name' => 'LAMP',
-                                'roles' => 'ROLE_DWWM',
-                                'slug' => 'LAMP',
-                            ],
-                            [
                                 'name' => 'NodeJS',
                                 'roles' => 'ROLE_DWWM',
                                 'slug' => 'nodejs'
                             ],
+                            [
+                                'docker' => 'Docker',
+                                'roles' => 'ROLE_DWWM',
+                                'slug' => 'docker'
+                            ]
                         ] 
                     ],
                 ],
