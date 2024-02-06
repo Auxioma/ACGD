@@ -362,6 +362,50 @@ class CategoryFixtures extends Fixture
                     ],
                 ],
             ],
+            3 => [
+                'name' => 'logiciel',
+                'roles' => 'ROLE_DWWM',
+                'slug' => 'logiciel',
+                'parent' => [
+                    [
+                        'name' => 'PC',
+                        'roles' => 'ROLE_DWWM',
+                        'slug' => 'PC',
+                        'parent' => [
+                            [
+                                'name' => 'VSCode',
+                                'roles' => 'ROLE_DWWM',
+                                'slug' => 'VSCode',
+                            ],
+                            [
+                                'name' => 'WAMP - Laragon',
+                                'roles' => 'ROLE_DWWM',
+                                'slug' => 'WAMP - Laragon',
+                            ],
+                            [
+                                'name' => 'GitHub',
+                                'roles' => 'ROLE_DWWM',
+                                'slug' => 'GitHub',
+                            ],
+                            [
+                                'name' => 'Composer',
+                                'roles' => 'ROLE_DWWM',
+                                'slug' => 'Composer',
+                            ],
+                            [
+                                'name' => 'LAMP',
+                                'roles' => 'ROLE_DWWM',
+                                'slug' => 'LAMP',
+                            ],
+                            [
+                                'name' => 'NodeJS',
+                                'roles' => 'ROLE_DWWM',
+                                'slug' => 'nodejs'
+                            ],
+                        ] 
+                    ],
+                ],
+            ],
         ];
 
         foreach ($category as $key => $value) {
