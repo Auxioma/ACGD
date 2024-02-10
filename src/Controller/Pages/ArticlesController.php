@@ -2,6 +2,7 @@
 
 namespace App\Controller\Pages;
 
+use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,6 +15,14 @@ class ArticlesController extends AbstractController
     {
         return $this->render('pages/cours.html.twig', [
             'articles' => $category->findOneBy(['slug' => $slug])
+        ]);
+    }
+
+    #[Route('/articles/{slug}/{chapitre}', name: 'app_cours_chapitre')]
+    public function chapitre($chapitre, ArticleRepository $article): Response
+    {
+        return $this->render('pages/chapitre.html.twig', [
+            'articles' => $article->findOneBy(['slug' => $chapitre])
         ]);
     }
 }     
