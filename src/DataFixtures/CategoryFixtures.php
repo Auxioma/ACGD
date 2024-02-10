@@ -2,13 +2,17 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Entity\Article;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class CategoryFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+
+        $faker = \Faker\Factory::create('fr_FR');
+
         $category = [
             1 => [
                 'name' => 'CCP 1 - front end',
@@ -398,7 +402,7 @@ class CategoryFixtures extends Fixture
                                 'slug' => 'nodejs'
                             ],
                             [
-                                'docker' => 'Docker',
+                                'name' => 'Docker',
                                 'roles' => 'ROLE_DWWM',
                                 'slug' => 'docker'
                             ]
@@ -414,8 +418,8 @@ class CategoryFixtures extends Fixture
             $category->setSlug($value['slug']);
             $category->setTitre($value['slug']);
             $category->setRoles($value['roles']);
+            $category->setDescription($faker->paragraph(5, true));
             $manager->persist($category);
-            $this->addReference('category_' . $key, $category);
             if (isset($value['parent'])) {
                 foreach ($value['parent'] as $key2 => $value2) {
                     $category2 = new \App\Entity\Category();
@@ -424,8 +428,8 @@ class CategoryFixtures extends Fixture
                     $category2->setTitre($value2['slug']);
                     $category2->setRoles($value2['roles']);
                     $category2->setParent($category);
+                    $category2->setDescription($faker->paragraph(10, true));
                     $manager->persist($category2);
-                    $this->addReference('category_' . $key . '_' . $key2, $category2);
                     if (isset($value2['parent'])) {
                         foreach ($value2['parent'] as $key3 => $value3) {
                             $category3 = new \App\Entity\Category();
@@ -434,8 +438,15 @@ class CategoryFixtures extends Fixture
                             $category3->setTitre($value3['slug']);
                             $category3->setRoles($value3['roles']);
                             $category3->setParent($category2);
+                            $category3->setDescription($faker->paragraph(10, true));
                             $manager->persist($category3);
-                            $this->addReference('category_' . $key . '_' . $key2 . '_' . $key3, $category3);
+                                $article = new Article();
+                                $article->setNom($faker->sentence());
+                                $article->setSlug($faker->slug());
+                                $article->setCour($faker->paragraph(10, true));
+                                $article->setCat($category3);
+                                $manager->persist($article); 
+
                             if (isset($value3['parent'])) {
                                 foreach ($value3['parent'] as $key4 => $value4) {
                                     $category4 = new \App\Entity\Category();
@@ -444,8 +455,14 @@ class CategoryFixtures extends Fixture
                                     $category4->setTitre($value4['slug']);
                                     $category4->setRoles($value4['roles']);
                                     $category4->setParent($category3);
-                                    $manager->persist($category4);
-                                    $this->addReference('category_' . $key . '_' . $key2 . '_' . $key3 . '_' . $key4, $category4);
+                                    $category4->setDescription($faker->paragraph(10, true));
+                                    $manager->persist($category4);   
+                                        $article = new Article();
+                                        $article->setNom('Article ' );
+                                        $article->setSlug('Contenu de l\'article ' );
+                                        $article->setCour('ff');
+                                        $article->setCat($category4);
+                                        $manager->persist($article);                                 
                                 }
                             }
                         }

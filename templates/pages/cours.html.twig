@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Hello {{ name }}!{% endblock %}
+{% block title %}1111111111111111{% endblock %}
 
 {% block body %}
     <!-- Content -->
@@ -9,13 +9,12 @@
         <div class="dlab-bnr-inr" style="background-image:url(/images/pattern/pattern.jpg); background-size:auto;">
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
-                    <h1 class="text-white">{{ categories[0].titre }}</h1>
+                    <h1 class="text-white">{{ articles. nom }}</h1>
 					<!-- Breadcrumb row -->
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
 							<li><a href="index.html"><i class="fa fa-home"></i></a></li>
-							<li>{{ categories[0].categories[0].titre }}</li>
-							<li>{{ categories[0].titre }}</li>
+							<li>{{ articles.nom }}</li>
 						</ul>
 					</div>
 					<!-- Breadcrumb row END -->
@@ -24,6 +23,7 @@
         </div>
         <!-- inner page banner END -->
 		<!-- inner page banner END -->
+		
         <div class="content-block">
 			<div class="section-full bg-white content-inner" style="background-image:url(/images/line2.png); background-size:contain;background-repeat: no-repeat;background-position: center;">
                 <div class="container">
@@ -37,7 +37,7 @@
                                 -->
 								<div class="class-info">
 									<div class="dlab-post-title ">
-										<h2 class="post-title m-t0"><a>Maquetter une application web et web mobile</a></h2>
+										<h2 class="post-title m-t0"><a>{{ articles.article.nom }}</a></h2>
 									</div>
 									<div class="dlab-post-meta m-b20">
 										<ul class="d-flex align-items-center">
@@ -46,7 +46,7 @@
 										</ul>
 									</div>
 									<div class="dlab-post-text">
-                                        {{ categories[0].description | raw }}
+                                        {{ articles.article.cour | raw }}
 									</div>
 								</div>
 							</div>
@@ -69,12 +69,9 @@
                             -->
 							<div class="details-tbl widget">
 								<ul class="class-details">
-                                    {% for category in categories[0].categories %}
 									<li>
-										<div class="name"><i class="la la-clock-o"></i><a class="text-white" href="{{ path('app_cours_index', {'slug': category.slug}) }}">{{ category.nom }}</a></div>
+										<div class="name"><i class="la la-clock-o"></i><a>a creer</a></div>
 									</li>
-                                    {% endfor %}
-
 								</ul>
 							</div>
 						</div>
