@@ -48,6 +48,10 @@
 									<div class="dlab-post-text">
                                         {{ articles.article.cour | raw }}
 									</div>
+									<div>
+										<a href="https://www.youtube.com/watch?v=Dj6CKxQue7U" class="btn btn-md radius-xl text-white">chapitre précedent</a>
+										<a href="https://www.youtube.com/watch?v=Dj6CKxQue7U" class="btn btn-md radius-xl">Chapitre suivent</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -67,10 +71,16 @@
                                 </div>
                             </div>
                             -->
+
+							{{dump(articles.article.nom)}}
+							{{dump(articles.article.article.nom)}}
+							{{dump(articles.article.article.article.nom)}}
+							
+							
 							<div class="details-tbl widget">
 								<ul class="class-details">
 									<li>
-										<div class="name"><i class="la la-clock-o"></i><a>a creer</a></div>
+										<div class="name"><i class="la la-clock-o"></i><a href="">a creer</a></div>
 									</li>
 								</ul>
 							</div>
@@ -81,4 +91,13 @@
 		</div>
     </div>
     <!-- Content END-->
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+	.class-info a {
+		color: #ffffff;
+	}
+</style>
+
 {% endblock %}

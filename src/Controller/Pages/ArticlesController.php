@@ -12,10 +12,8 @@ class ArticlesController extends AbstractController
     #[Route('/articles/{slug}', name: 'app_cours_index')]
     public function index(CategoryRepository $category, $slug): Response
     {
-        $articles = $category->findOneBy(['slug' => $slug]);
-
         return $this->render('pages/cours.html.twig', [
-            'articles' => $articles,
+            'articles' => $category->findOneBy(['slug' => $slug])
         ]);
     }
 }     

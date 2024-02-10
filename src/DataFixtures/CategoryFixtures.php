@@ -446,7 +446,18 @@ class CategoryFixtures extends Fixture
                                 $article->setCour($faker->paragraph(10, true));
                                 $article->setCat($category3);
                                 $manager->persist($article); 
-
+                                    $article1 = new Article();
+                                    $article1->setNom($faker->sentence());
+                                    $article1->setSlug($faker->slug());
+                                    $article1->setCour($faker->paragraph(10, true));
+                                    $article1->setParent($article);
+                                    $manager->persist($article1);
+                                        $article2 = new Article();
+                                        $article2->setNom($faker->sentence());
+                                        $article2->setSlug($faker->slug());
+                                        $article2->setCour($faker->paragraph(10, true));
+                                        $article2->setParent($article1);
+                                        $manager->persist($article2);
                             if (isset($value3['parent'])) {
                                 foreach ($value3['parent'] as $key4 => $value4) {
                                     $category4 = new \App\Entity\Category();
@@ -458,9 +469,9 @@ class CategoryFixtures extends Fixture
                                     $category4->setDescription($faker->paragraph(10, true));
                                     $manager->persist($category4);   
                                         $article = new Article();
-                                        $article->setNom('Article ' );
-                                        $article->setSlug('Contenu de l\'article ' );
-                                        $article->setCour('ff');
+                                        $article->setNom($value4['name']);
+                                        $article->setSlug($value4['slug']);
+                                        $article->setCour($faker->paragraph(10, true));
                                         $article->setCat($category4);
                                         $manager->persist($article);                                 
                                 }
