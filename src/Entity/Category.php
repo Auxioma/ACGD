@@ -8,8 +8,10 @@ use App\Entity\Traits\TimestampTraits;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
+#[HasLifecycleCallbacks]
 class Category
 {
 
