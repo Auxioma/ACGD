@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Stage - Emploi{% endblock %}
+
+{% block body %}
+    <!-- Content -->
+    <div class="page-content">
+		<!-- inner page banner -->
+        <div class="dlab-bnr-inr" style="background-image:url(/images/pattern/pattern.jpg); background-size:auto;">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">Emploi</h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="index.html"><i class="fa fa-home"></i></a></li>
+							<li>Emploi - stage</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <div class="content-block">
+            <!-- blog grid -->
+			<div class="section-full content-inner">
+				<div class="container">
+					<div class="dlab-blog-grid-3 row" id="masonry">
+                        
+                        {% for job in jobs.resultats %}
+
+						<div class="card-container col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+							<div class="blog-post blog-grid style-2">
+								<div class="dlab-post-media">
+									<a target="_blank" href="{{ job.origineOffre.urlOrigine }}"><img src="{{ job.origineOffre.partenaires[0].logo }}" width="600" height="472" alt=""></a>
+								</div>
+								<div class="dlab-info">
+									<div class="dlab-post-title ">
+										<h5 class="post-title"><a href="blog-details.html">{{ job.intitule }}</a></h5>
+									</div>
+									<div class="dlab-post-meta">
+										<ul class="align-items-center">
+											<li class="post-date"><i class="fa fa-calendar"></i><strong></strong> <span>{{ job.dateCreation | date('d-m-y') }}</span></li>
+											<li class="post-author"><i class="fa fa-user"></i>Part <a target="_blank" href="{{ job.origineOffre.partenaires[0].url }}">{{ job.origineOffre.partenaires[0].nom }}</a></li>
+										</ul>
+									</div>
+									<div class="dlab-post-text">
+										<p>{{ job.description |u.truncate(70) }}...</p>
+									</div>
+									<div class="dlab-post-readmore blog-share"> 
+										<a target="_blank" href="{{ job.origineOffre.urlOrigine }}" title="READ MORE" rel="bookmark" class="btn black">Voir l'offre</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+                        {% endfor %}
+
+					</div>
+				</div>
+			</div>
+			<!-- blog grid END -->
+        </div>
+		<!-- contact area END -->
+    </div>
+    <!-- Content END-->
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .blog-grid .dlab-post-title .post-title {
+        height:105px;
+    }
+    .blog-post.style-2 {
+    box-shadow: 5px 5px 5px 0 #fff04c;
+}
+</style>
+
+{% endblock %}

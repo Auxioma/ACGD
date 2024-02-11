@@ -68,7 +68,7 @@ class PoleEmploiServices
     {
         $q = str_replace(' ', '-', $q);
         $q = $this->removeAccents($q);
-        $url = "https://api.pole-emploi.io/partenaire/offresdemploi/v2/offres/search?codeROME=M1805&commune=74119&distance=300&sort=1&range=0-5";
+        $url = "https://api.pole-emploi.io/partenaire/offresdemploi/v2/offres/search?codeROME=M1805&commune=33063&distance=500&sort=1&range=0-8";
         $curl = curl_init();
         $opts = [
             CURLOPT_SSL_VERIFYPEER  => false,

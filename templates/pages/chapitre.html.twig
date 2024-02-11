@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}1111111111111111{% endblock %}
+{% block title %}{{ articles.nom }}{% endblock %}
 
 {% block body %}
     <!-- Content -->
@@ -14,6 +14,7 @@
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
 							<li><a href="index.html"><i class="fa fa-home"></i></a></li>
+							<li>{{articles.parent.nom}}</li>
 							<li>{{ articles.nom }}</li>
 						</ul>
 					</div>
@@ -37,26 +38,16 @@
                                 -->
 								<div class="class-info">
 									<div class="dlab-post-title ">
-										<h2 class="post-title m-t0"><a>{{ articles.titre }}ss</a></h2>
+										<h2 class="post-title m-t0"><a>{{ articles.titre }}</a></h2>
 									</div>
 									<div class="dlab-post-meta m-b20">
 										<ul class="d-flex align-items-center">
-											<li class="post-date"> <i class="la la-calendar-o"></i><strong>10 Aug</strong> <span> 2016</span> </li>
-											<li class="post-author"><i class="la la-user"></i>By <a>Guillaume</a> </li>
+											<li class="post-date"> <i class="la la-calendar-o"></i><strong>Mise à jour : </strong> <span> {{ articles.updatedat | date('d-m-Y à H:m:i') }}</span> </li>
+											<li class="post-author"><i class="la la-user"></i>Part <a>Guillaume</a> </li>
 										</ul>
 									</div>
 									<div class="dlab-post-text">
                                       {{ articles.description | raw }}
-									</div>
-									<div>
-									
-										<a href="" class="btn btn-md radius-xl text-white">chapitre précedent</a>
-										<a href="" class="btn btn-md radius-xl text-white">chapitre précedent</a>
-
-										
-										
-
-										
 									</div>
 								</div>
 							</div>
@@ -78,17 +69,16 @@
                             </div>
                             -->
 							<div class="details-tbl widget">
+							
 								<ul class="class-details">
+									{% for categorie in articles.parent.categories %}
 									<li>
 										<div class="name">
-											<i class="la la-clock-o"></i><a href="">a creer</a>
+											<i class="la la-clock-o"></i><a class="text-white" href="{{ path('app_cours_chapitre', {'slug': categorie.parent.slug, 'chapitre': categorie.slug}) }}">{{ categorie.nom }}</a>
 										</div>
 									</li>
-									<li>
-										<div class="name">
-											<i class="la la-clock-o"></i><a href="">a creer</a>
-										</div>
-									</li>
+									{% endfor %}
+									
 								</ul>
 							</div>
 						</div>
