@@ -11,6 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
 {
+    public function __toString(): string
+    {
+        return $this->nom;
+    }
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -36,9 +41,6 @@ class Category
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Description = null;
-
-    #[ORM\OneToOne(mappedBy: 'cat', cascade: ['persist', 'remove'])]
-    private ?Article $article = null;
 
     public function __construct()
     {
@@ -148,28 +150,6 @@ class Category
     public function setDescription(?string $Description): static
     {
         $this->Description = $Description;
-
-        return $this;
-    }
-
-    public function getArticle(): ?Article
-    {
-        return $this->article;
-    }
-
-    public function setArticle(?Article $article): static
-    {
-        // unset the owning side of the relation if necessary
-        if ($article === null && $this->article !== null) {
-            $this->article->setCat(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($article !== null && $article->getCat() !== $this) {
-            $article->setCat($this);
-        }
-
-        $this->article = $article;
 
         return $this;
     }

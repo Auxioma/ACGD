@@ -9,12 +9,12 @@
         <div class="dlab-bnr-inr" style="background-image:url(/images/pattern/pattern.jpg); background-size:auto;">
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
-                    <h1 class="text-white">ssss</h1>
+                    <h1 class="text-white">{{ articles.nom }}</h1>
 					<!-- Breadcrumb row -->
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
 							<li><a href="index.html"><i class="fa fa-home"></i></a></li>
-							<li>ssss</li>
+							<li>{{ articles.nom }}</li>
 						</ul>
 					</div>
 					<!-- Breadcrumb row END -->
@@ -37,7 +37,7 @@
                                 -->
 								<div class="class-info">
 									<div class="dlab-post-title ">
-										<h2 class="post-title m-t0"><a>sss</a></h2>
+										<h2 class="post-title m-t0"><a>{{ articles.titre }}ss</a></h2>
 									</div>
 									<div class="dlab-post-meta m-b20">
 										<ul class="d-flex align-items-center">
@@ -46,10 +46,10 @@
 										</ul>
 									</div>
 									<div class="dlab-post-text">
-                                       ssss
+                                      {{ articles.description | raw }}
 									</div>
 									<div>
-										
+									
 										<a href="" class="btn btn-md radius-xl text-white">chapitre précedent</a>
 										<a href="" class="btn btn-md radius-xl text-white">chapitre précedent</a>
 

@@ -19,10 +19,12 @@ class ArticlesController extends AbstractController
     }
 
     #[Route('/articles/{slug}/{chapitre}', name: 'app_cours_chapitre')]
-    public function chapitre($chapitre, ArticleRepository $article): Response
+    public function chapitre($chapitre, CategoryRepository $category): Response
     {
         return $this->render('pages/chapitre.html.twig', [
-            'articles' => $article->findOneBy(['slug' => $chapitre])
+            'articles' => $category->findOneBy(['slug' => $chapitre]),
+            
         ]);
     }
+
 }     
