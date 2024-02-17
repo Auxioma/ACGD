@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class CategoryCrudController extends AbstractCrudController
@@ -27,10 +28,11 @@ class CategoryCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('nom', 'Nom de la catégorie'),
             SlugField::new('slug')->setTargetFieldName('nom'),
-            TextField::new('roles'),
+            TextField::new('roles')->hideOnIndex(),
             TextField::new('titre'),
-            TextareaField::new('description'),
-            AssociationField::new('parent'),
+            TextareaField::new('description')->hideOnIndex(),
+            AssociationField::new('parent')->hideOnIndex(),
+            BooleanField::new('IsOnLine', 'Actif'),
         ];
     }
 

@@ -48,6 +48,9 @@ class Category
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Description = null;
 
+    #[ORM\Column]
+    private ?bool $IsOnLine = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -156,6 +159,18 @@ class Category
     public function setDescription(?string $Description): static
     {
         $this->Description = $Description;
+
+        return $this;
+    }
+
+    public function isIsOnLine(): ?bool
+    {
+        return $this->IsOnLine;
+    }
+
+    public function setIsOnLine(bool $IsOnLine): static
+    {
+        $this->IsOnLine = $IsOnLine;
 
         return $this;
     }
