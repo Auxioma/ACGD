@@ -26,12 +26,12 @@ class CategoryCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
+            AssociationField::new('parent')->hideOnIndex(),
             TextField::new('nom', 'Nom de la catégorie'),
             SlugField::new('slug')->setTargetFieldName('nom'),
             TextField::new('roles')->hideOnIndex(),
             TextField::new('titre'),
             TextareaField::new('description')->hideOnIndex(),
-            AssociationField::new('parent')->hideOnIndex(),
             BooleanField::new('IsOnLine', 'Actif'),
         ];
     }

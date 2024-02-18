@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CategoryController extends AbstractController
 {
-    #[Route('/cours/{slug}', name: 'app_category_index')]
+    #[Route('/h/cours/{slug}', name: 'app_category_index')]
     #[IsGranted('ROLE_DWWM', message: 'No access! Get out!', statusCode: 403 )]
     public function index(CategoryRepository $category, string $slug): Response
     {
@@ -19,7 +19,7 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/cours/{category}/{slug}', name: 'app_category_list')]
+    #[Route('/h/cours/{category}/{slug}', name: 'app_category_list')]
     #[IsGranted('ROLE_DWWM', message: 'No access! Get out!', statusCode: 403 )]
     public function list(CategoryRepository $categories, string $category, string $slug): Response
     {

@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Attribute\Cache;
 
 class ArticlesController extends AbstractController
 {
-    #[Route('/articles/{slug}', name: 'app_cours_index')]
+    #[Route('/h/articles/{slug}', name: 'app_cours_index')]
     #[IsGranted('ROLE_DWWM', message: 'No access! Get out!', statusCode: 403 )]
     #[Cache(public: true, maxage: 3600, mustRevalidate: true)]
     public function index(CategoryRepository $category, $slug): Response
@@ -22,7 +22,7 @@ class ArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/articles/{slug}/{chapitre}', name: 'app_cours_chapitre')]
+    #[Route('/h/articles/{slug}/{chapitre}', name: 'app_cours_chapitre')]
     #[IsGranted('ROLE_DWWM', message: 'No access! Get out!', statusCode: 403 )]
     #[Cache(public: true, maxage: 3600, mustRevalidate: true)]
     public function chapitre($chapitre, CategoryRepository $category): Response

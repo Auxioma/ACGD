@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+    #[Route('/h', name: 'app_home')]
     #[IsGranted('ROLE_DWWM', message: 'No access! Get out!', statusCode: 403 )]
     public function index(PoleEmploiServices $job): Response
     {

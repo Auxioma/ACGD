@@ -12,7 +12,7 @@ class StageController extends AbstractController
 {
     public function __construct() {}
 
-    #[Route('/stage', name: 'app_stage')]
+    #[Route('/h/stage', name: 'app_stage')]
     #[IsGranted('ROLE_DWWM', message: 'No access! Get out!', statusCode: 403 )]
     public function stage(PoleEmploiServices $job): Response
     {
