@@ -10,8 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
-    #[Route('/h', name: 'app_home')]
-    #[IsGranted('ROLE_DWWM', message: 'No access! Get out!', statusCode: 403 )]
+    #[Route('/h', name: 'app_home', methods: ['GET'], schemes: ['https'])]
+    #[IsGranted('ROLE_DWWM')]
     public function index(PoleEmploiServices $job): Response
     {
         $ResultJob = $job->get($query = '');
