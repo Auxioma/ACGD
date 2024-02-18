@@ -60,5 +60,27 @@
         <script src="{{ asset('js/dz.ajax.js') }}"></script><!-- CONTACT JS  -->
         <script src="{{ asset('plugins/loading/anime.js') }}"></script><!-- LOADING JS -->
         <script src="{{ asset('plugins/loading/anime-app.js') }}"></script><!-- LOADING JS -->
+        <script>
+            let titre = document.getElementById("horloge");
+
+            function afficheHeure(){
+                let d = new Date();
+                let h=d.getHours();
+                    if (h<10) {
+                        h = "0" + h;
+                    }
+                let m=d.getMinutes();
+                    if (m<10){
+                        m= "0"+m;
+                    }
+
+                let s=d.getSeconds();
+                    if (s<10){
+                        s="0"+s;
+                    }
+                titre.innerHTML = h + ":" + m + ":" + s 
+            }
+            setInterval(afficheHeure, 500);
+        </script>
     </body>
 </html>
