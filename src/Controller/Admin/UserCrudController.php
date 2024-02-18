@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -15,14 +17,23 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
-    /*
+/*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->onlyOnIndex(),
+            TextField::new('nom'),
+            TextField::new('prenom'),
+            TextField::new('email'),
+            ChoiceField::new('roles')->setChoices([
+                'ROLE_USER' => 'ROLE_USER', 
+                'ROLE_ADMIN' => 'ROLE_ADMIN', 
+            ])->allowMultipleChoices(),
+            DateField::new('createdAt', 'Date de création')->onlyOnIndex(),
+            
+
+
         ];
     }
-    */
+*/
 }
