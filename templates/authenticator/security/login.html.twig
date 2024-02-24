@@ -163,7 +163,7 @@
 						<label>Password</label>
 					</div>
 					<div class="forgot-pass">
-						<a href="#">Mots de passe oublier?</a>
+						<a href="{{ path('app_forgot_password_request') }}">Mots de passe oublier?</a>
 					</div>
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 					<button type="submit" class="btn">Se connecter</button>

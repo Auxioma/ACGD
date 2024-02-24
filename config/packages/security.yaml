@@ -21,6 +21,10 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 target: app_login
+            login_throttling:
+                max_attempts: 5
+                interval: '30 minutes'
+
 
             remember_me:
                 secret: '%kernel.secret%'
@@ -39,7 +43,7 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        # - { path: ^/h, roles: ROLE_DWWM }
+        - { path: ^/h, roles: ROLE_DWWM }
 
 
 when@test:
