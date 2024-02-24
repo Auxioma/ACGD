@@ -15,7 +15,7 @@ class CategoryController extends AbstractController
     public function Category(): Response
     {
         return $this->render('_partials/header.html.twig', [
-            'categories' => $this->categoryRepository->findBy(['roles' => $this->getUser()->getRoles()[0], 'parent' => null])
+            'categories' => $this->categoryRepository->findBy(['roles' => $this->getUser()->getRoles()[0], 'parent' => null, 'IsOnLine' => true])
         ]);
     }
 }
