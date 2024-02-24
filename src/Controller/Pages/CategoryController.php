@@ -15,7 +15,7 @@ class CategoryController extends AbstractController
     public function index(CategoryRepository $category, string $slug): Response
     {
         return $this->render('pages/list_category.html.twig', [
-            'categories' => $category->findBy(['slug' => $slug])
+            'categories' => $category->findBy(['slug' => $slug, 'IsOnLine' => true])
         ]);
     }
 
