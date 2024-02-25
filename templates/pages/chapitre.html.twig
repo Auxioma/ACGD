@@ -3,14 +3,12 @@
 {% block title %}{{ articles.nom }}{% endblock %}
 
 {% block body %}
-    <!-- Content -->
+
     <div class="page-content">
-		<!-- inner page banner -->
         <div class="dlab-bnr-inr" style="background-image:url(/images/pattern/pattern.jpg); background-size:auto;">
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
                     <h1 class="text-white">{{ articles.nom }}</h1>
-					<!-- Breadcrumb row -->
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
 							<li><a href="{{ path('app_home') }}"><i class="fa fa-home"></i></a></li>
@@ -18,13 +16,9 @@
 							<li>{{ articles.nom }}</li>
 						</ul>
 					</div>
-					<!-- Breadcrumb row END -->
                 </div>
             </div>
         </div>
-        <!-- inner page banner END -->
-		<!-- inner page banner END -->
-		
         <div class="content-block">
 			<div class="section-full bg-white content-inner" style="background-image:url(/images/line2.png); background-size:contain;background-repeat: no-repeat;background-position: center;">
                 <div class="container">

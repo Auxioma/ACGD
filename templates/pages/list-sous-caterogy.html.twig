@@ -14,8 +14,10 @@
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
 							<li><a href="{{ path('app_home') }}"><i class="fa fa-home"></i></a></li>
-							<li>{{ categories[0].categories[0].titre }}</li>
+							<li><a href="{{ path('app_category_index', {'slug': categories[0].parent.slug}) }}">{{ categories[0].parent.titre }}</a></li>
 							<li>{{ categories[0].titre }}</li>
+							
+							
 						</ul>
 					</div>
 					<!-- Breadcrumb row END -->
