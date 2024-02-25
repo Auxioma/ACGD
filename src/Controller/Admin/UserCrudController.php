@@ -57,6 +57,5 @@ class UserCrudController extends AbstractCrudController
 
         parent::persistEntity($entityManager, $entityInstance);
 
-        
     }
 }
