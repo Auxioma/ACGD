@@ -70,9 +70,11 @@
 							<div class="details-tbl widget">
 								<ul class="class-details">
                                     {% for category in categories[0].categories %}
-									<li>
-										<div class="name"><i class="la la-clock-o"></i><a class="text-white" href="{{ path('app_cours_index', {'slug': category.slug}) }}">{{ category.nom }}</a></div>
-									</li>
+									    {% if category.IsOnLine == 0  %}{% elseif category.IsOnLine == 1  %}
+											<li>
+												<div class="name"><i class="la la-clock-o"></i><a class="text-white" href="{{ path('app_cours_index', {'slug': category.slug}) }}">{{ category.nom }}</a></div>
+											</li>
+										{% endif %}
                                     {% endfor %}
 
 								</ul>

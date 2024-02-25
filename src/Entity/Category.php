@@ -163,7 +163,7 @@ class Category
         return $this;
     }
 
-    public function isIsOnLine(): ?bool
+    public function getIsOnLine(): ?bool
     {
         return $this->IsOnLine;
     }

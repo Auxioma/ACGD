@@ -28,19 +28,21 @@
 					<div class="row sp40">
                         {% for categorie in categories %}
                             {% for category in categorie.categories %}
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                                    <div class="class-item">
-                                        <div class="class-media"> 
-                                            <img src="/images/classes/pic1.jpg" alt="{{ category.nom }}"/>
-                                            <p>
-                                                <span>{{ category.nom }}</span> 
-                                            </p>
-                                        </div>
-                                        <div class="class-info">
-                                            <h4><a href="{{ path('app_category_list', {'category': categorie.slug, 'slug': category.slug}) }}">{{ category.titre }}</a></h4>
+                                {% if category.IsOnLine == 0  %}{% elseif category.IsOnLine == 1 %}
+                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                        <div class="class-item">
+                                            <div class="class-media"> 
+                                                <img src="/images/classes/pic1.jpg" alt="{{ category.nom }}"/>
+                                                <p>
+                                                    <span>{{ category.nom }}</span> 
+                                                </p>
+                                            </div>
+                                            <div class="class-info">
+                                                <h4><a href="{{ path('app_category_list', {'category': categorie.slug, 'slug': category.slug}) }}">{{ category.titre }}</a></h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                {% endif %}
                             {% endfor %}
                         {% endfor %}
 					</div>

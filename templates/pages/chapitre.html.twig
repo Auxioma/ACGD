@@ -72,11 +72,13 @@
 							
 								<ul class="class-details">
 									{% for categorie in articles.parent.categories %}
-									<li>
-										<div class="name">
-											<i class="la la-clock-o"></i><a class="text-white" href="{{ path('app_cours_chapitre', {'slug': categorie.parent.slug, 'chapitre': categorie.slug}) }}">{{ categorie.nom }}</a>
-										</div>
-									</li>
+										{% if categorie.IsOnLine == 0  %}{% elseif categorie.IsOnLine == 1 %}
+											<li>
+												<div class="name">
+													<i class="la la-clock-o"></i><a class="text-white" href="{{ path('app_cours_chapitre', {'slug': categorie.parent.slug, 'chapitre': categorie.slug}) }}">{{ categorie.nom }}</a>
+												</div>
+											</li>
+										{% endif %}
 									{% endfor %}
 									
 								</ul>
