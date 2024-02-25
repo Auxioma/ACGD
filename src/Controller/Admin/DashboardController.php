@@ -13,8 +13,8 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin')]
-   #[IsGranted('ROLE_ADMIN')]
+    #[Route('/admin150187', name: 'admin')]
+    #[IsGranted('ROLE_DWWM')]
     public function index(): Response
     {
         return $this->render('bundles/EasyAdminBundle/page/login.html.twig');
