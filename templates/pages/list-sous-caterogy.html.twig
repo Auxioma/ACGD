@@ -13,7 +13,7 @@
 					<!-- Breadcrumb row -->
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
-							<li><a href="index.html"><i class="fa fa-home"></i></a></li>
+							<li><a href="{{ path('app_home') }}"><i class="fa fa-home"></i></a></li>
 							<li>{{ categories[0].categories[0].titre }}</li>
 							<li>{{ categories[0].titre }}</li>
 						</ul>
@@ -37,7 +37,7 @@
                                 -->
 								<div class="class-info">
 									<div class="dlab-post-title ">
-										<h2 class="post-title m-t0"><a>Maquetter une application web et web mobile</a></h2>
+										<h2 class="post-title m-t0"><a>{{ categories[0].titre }}</a></h2>
 									</div>
 									<div class="dlab-post-meta m-b20">
 										<ul class="d-flex align-items-center">
