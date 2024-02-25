@@ -52,7 +52,11 @@ class UserCrudController extends AbstractCrudController
                     <p>Pour des raisons de sécurité, créer un mot de passe sécurisé en faisant un Reset password, </p>
                     <p>en cliquant sur le lien suivant : <a href="https://centre-formation.eu/reset-password">Cliquez ici</a></p>'
                   );
+
         $this->mailer->send($email);
+
         parent::persistEntity($entityManager, $entityInstance);
+
+        
     }
 }
